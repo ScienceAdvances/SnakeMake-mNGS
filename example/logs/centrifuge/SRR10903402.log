@@ -1,0 +1,4 @@
+report file results/centrifuge/SRR10903402.report.tsv
+Number of iterations in EM algorithm: 15
+Probability diff. (P - P_prev) in the last iteration: 4.66543e-11
+Calculating abundance: 00:00:00

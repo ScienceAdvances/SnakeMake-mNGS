@@ -1,0 +1,5 @@
+Sample	Kraken_mqc-generalstats-kraken-Escherichia_coli	Kraken_mqc-generalstats-kraken-Top_5	Kraken_mqc-generalstats-kraken-Unclassified	fastp_mqc-generalstats-fastp-pct_duplication	fastp_mqc-generalstats-fastp-after_filtering_q30_rate	fastp_mqc-generalstats-fastp-after_filtering_q30_bases	fastp_mqc-generalstats-fastp-filtering_result_passed_filter_reads	fastp_mqc-generalstats-fastp-after_filtering_gc_content	fastp_mqc-generalstats-fastp-pct_surviving	fastp_mqc-generalstats-fastp-pct_adapter
+SRR10903401	14.963644073120172	87.47016144230166		11.9274	0.936086	121314011.0	937318.0	0.435083	98.32722100068816	32.992958928481514
+SRR10903401.kreport	1.282051282051282	8.46153846153846	0.0							
+SRR10903402	84.8263378788869	87.98558759259944		12.7062	0.930319	171743059.0	1331880.0	0.429358	98.41080311041624	29.948248395877602
+SRR10903402.kreport	1.094391244870041	7.387140902872777	0.0							

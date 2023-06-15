@@ -1,0 +1,42 @@
+WARNING: fastp uses up to 16 threads although you specified 20
+Read1 before filtering:
+total reads: 676694
+total bases: 101889418
+Q20 bases: 98821885(96.9894%)
+Q30 bases: 97982060(96.1651%)
+
+Read2 before filtering:
+total reads: 676694
+total bases: 101942785
+Q20 bases: 91436012(89.6935%)
+Q30 bases: 89741061(88.0308%)
+
+Read1 after filtering:
+total reads: 665940
+total bases: 92307586
+Q20 bases: 90060609(97.5658%)
+Q30 bases: 89471515(96.9276%)
+
+Read2 after filtering:
+total reads: 665940
+total bases: 92299023
+Q20 bases: 83580116(90.5536%)
+Q30 bases: 82271544(89.1359%)
+
+Filtering result:
+reads passed filter: 1331880
+reads failed due to low quality: 21508
+reads failed due to too many N: 0
+reads failed due to too short: 0
+reads with adapter trimmed: 405316
+bases trimmed due to adapters: 15988462
+
+Duplication rate: 12.7062%
+
+Insert size peak (evaluated by paired-end reads): 141
+
+JSON report: report/SRR10903402.fastp.json
+HTML report: report/SRR10903402.fastp.html
+
+fastp --thread 20 --in1 raw/SRR10903402.1.fastq.gz --in2 raw/SRR10903402.2.fastq.gz --out1 results/trimmed/SRR10903402.1.fastq.gz --out2 results/trimmed/SRR10903402.2.fastq.gz --json report/SRR10903402.fastp.json --html report/SRR10903402.fastp.html 
+fastp v0.23.2, time used: 13 seconds

@@ -1,0 +1,17 @@
+samples: config/samples.tsv
+
+warpper_mirror: https://jihulab.com/BioQuest/snakemake-wrappers/raw/v1.32.0/
+
+fastqs:
+    dir: raw # raw fastq files directory
+    pe: true # pair end
+    duplicates: remove # Can be 'mark' or 'remove'.
+    platform: ILLUMINA
+
+genome:
+    dir: /home/victor/DataHub
+    species: homo_sapiens
+    release: "109"
+    build: GRCh38
+
+mNGS_idx: /home/victor/DataHub/mNGS

@@ -1,0 +1,21 @@
+include: "rules/common.smk"
+
+##### Target rules #####
+
+rule all:
+    input:
+        "report/fastp_multiqc.html",
+        "report/align_multiqc.html",
+        expand("report/centrifuge/{s}.kreport.tsv",s=samples.Sample),
+        expand("report/bracken/{s}.bracken.tsv",s=samples.Sample),
+        expand("report/Krona/{s}.html",s=samples.Sample),
+        expand("results/VFDB/{s}.tsv",s=samples.Sample),
+        expand("results/rgi/{s}.txt",s=samples.Sample),
+
+##### Modules #####
+include: "rules/trim.smk"
+include: "rules/ref.smk"
+include: "rules/align.smk"
+include: "rules/classify.smk"
+include: "rules/qc.smk"
+include: "rules/assemble.smk"

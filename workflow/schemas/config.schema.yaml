@@ -1,0 +1,47 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+description: snakemake configuration file
+
+type: object
+
+properties:
+  samples:
+    type: string
+  mNGS_idx:
+    type: string
+  genome:
+    type: object
+    properties:
+      datatype:
+          type: string
+      dir:
+          type: string
+      species:
+          type: string
+      build:
+          type: string
+      release:
+          type: string
+
+  warpper_mirror_prefix:
+    type: string
+
+  fastqs:
+    type: object
+    properties:
+      dir:
+        type: string
+      platform:
+        type: string
+      duplicates:
+        type: string
+      pe:
+        type: boolean
+    required:
+      - dir
+      - pe
+required:
+  - samples
+  - genome
+  - warpper_mirror
+  - fastqs

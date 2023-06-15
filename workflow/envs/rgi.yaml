@@ -1,0 +1,9 @@
+channels:
+  - conda-forge
+  - bioconda
+  - nodefaults
+dependencies:
+  - rgi=5.2.0
+  - blast=2.9.0
+  - perl=5.32.1
+  - bwa=0.7.17

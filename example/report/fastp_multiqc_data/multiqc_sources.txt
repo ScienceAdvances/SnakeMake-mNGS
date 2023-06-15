@@ -1,0 +1,7 @@
+Module	Section	Sample Name	Source
+Kraken	all_sections	SRR10903401.kreport	/home/victor/Project/mNGS/report/centrifuge/SRR10903401.kreport.tsv
+Kraken	all_sections	SRR10903402.kreport	/home/victor/Project/mNGS/report/centrifuge/SRR10903402.kreport.tsv
+Kraken	all_sections	SRR10903402	/home/victor/Project/mNGS/report/kraken2/SRR10903402.report_bracken_species.tsv
+Kraken	all_sections	SRR10903401	/home/victor/Project/mNGS/report/kraken2/SRR10903401.report_bracken_species.tsv
+fastp	all_sections	SRR10903401	/home/victor/Project/mNGS/report/SRR10903401.fastp.json
+fastp	all_sections	SRR10903402	/home/victor/Project/mNGS/report/SRR10903402.fastp.json

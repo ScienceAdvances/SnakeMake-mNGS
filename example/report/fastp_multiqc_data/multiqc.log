@@ -1,0 +1,26 @@
+[2023-06-15 11:52:33,935] multiqc                                            [DEBUG  ]  This is MultiQC v1.14
+[2023-06-15 11:52:33,936] multiqc                                            [DEBUG  ]  Command used: /home/victor/Project/mNGS/.snakemake/conda/cedf661585ba3bc83e94d14ae35504a0_/bin/multiqc --force -o report -n fastp_multiqc.html report
+[2023-06-15 11:52:35,461] multiqc                                            [DEBUG  ]  Latest MultiQC version is v1.14
+[2023-06-15 11:52:35,462] multiqc                                            [DEBUG  ]  Working dir : /home/victor/Project/mNGS
+[2023-06-15 11:52:35,462] multiqc                                            [DEBUG  ]  Template    : default
+[2023-06-15 11:52:35,462] multiqc                                            [DEBUG  ]  Running Python 3.11.4 | packaged by conda-forge | (main, Jun 10 2023, 18:08:17) [GCC 12.2.0]
+[2023-06-15 11:52:35,463] multiqc                                            [DEBUG  ]  Analysing modules: custom_content, ccs, ngsderive, purple, conpair, lima, peddy, somalier, methylQA, mosdepth, phantompeakqualtools, qualimap, preseq, hifiasm, quast, qorts, rna_seqc, rockhopper, rsem, rseqc, busco, bustools, goleft_indexcov, gffcompare, disambiguate, supernova, deeptools, sargasso, verifybamid, mirtrace, happy, mirtop, sambamba, gopeaks, homer, hops, macs2, theta2, snpeff, gatk, htseq, bcftools, featureCounts, fgbio, dragen, dragen_fastqc, dedup, pbmarkdup, damageprofiler, biobambam2, jcvi, mtnucratio, picard, vep, sentieon, prokka, qc3C, nanostat, samblaster, samtools, sexdeterrmine, eigenstratdatabasetools, bamtools, jellyfish, vcftools, longranger, stacks, varscan2, snippy, umitools, bbmap, bismark, biscuit, diamond, hicexplorer, hicup, hicpro, salmon, kallisto, slamdunk, star, hisat2, tophat, bowtie2, bowtie1, cellranger, snpsplit, odgi, pangolin, nextclade, humid, kat, leehom, adapterRemoval, bbduk, clipandmerge, cutadapt, flexbar, kaiju, kraken, malt, motus, trimmomatic, sickle, skewer, sortmerna, biobloomtools, fastq_screen, afterqc, fastp, fastqc, filtlong, prinseqplusplus, pychopper, porechop, pycoqc, minionqc, anglerfish, multivcfanalyzer, clusterflow, checkqc, bcl2fastq, bclconvert, interop, ivar, flash, seqyclean, optitype, whatshap
+[2023-06-15 11:52:35,464] multiqc                                            [DEBUG  ]  Using temporary directory for creating report: /tmp/tmp_tfuxn47
+[2023-06-15 11:52:36,952] multiqc                                            [INFO   ]  Search path : /home/victor/Project/mNGS/report
+[2023-06-15 11:52:37,684] multiqc                                            [DEBUG  ]  Summary of files that were skipped by the search: [skipped_module_specific_max_filesize: 40] // [skipped_no_match: 4] // [skipped_ignore_pattern: 2]
+[2023-06-15 11:52:45,866] multiqc.plots.bargraph                             [DEBUG  ]  Using matplotlib version 3.7.1
+[2023-06-15 11:52:45,924] multiqc.plots.linegraph                            [DEBUG  ]  Using matplotlib version 3.7.1
+[2023-06-15 11:52:45,940] multiqc                                            [DEBUG  ]  No samples found: custom_content
+[2023-06-15 11:52:46,005] multiqc.modules.kraken.kraken                      [INFO   ]  Found 4 reports
+[2023-06-15 11:52:46,057] multiqc.modules.kraken.kraken                      [DEBUG  ]  Found negative 'other' count for SRR10903402 (Domain): -111
+[2023-06-15 11:52:46,057] multiqc.modules.kraken.kraken                      [DEBUG  ]  Found negative 'other' count for SRR10903401 (Domain): -47
+[2023-06-15 11:52:46,059] multiqc.modules.kraken.kraken                      [DEBUG  ]  Found negative 'other' count for SRR10903402 (Root): -113
+[2023-06-15 11:52:46,059] multiqc.modules.kraken.kraken                      [DEBUG  ]  Found negative 'other' count for SRR10903401 (Root): -49
+[2023-06-15 11:52:46,150] multiqc.modules.fastp.fastp                        [DEBUG  ]  No duplication rate plot data: SRR10903401.fastp.json
+[2023-06-15 11:52:46,183] multiqc.modules.fastp.fastp                        [DEBUG  ]  No duplication rate plot data: SRR10903402.fastp.json
+[2023-06-15 11:52:46,184] multiqc.modules.fastp.fastp                        [INFO   ]  Found 2 reports
+[2023-06-15 11:52:46,221] multiqc                                            [INFO   ]  Compressing plot data
+[2023-06-15 11:52:46,567] multiqc                                            [INFO   ]  Report      : report/fastp_multiqc.html
+[2023-06-15 11:52:46,568] multiqc                                            [INFO   ]  Data        : report/fastp_multiqc_data
+[2023-06-15 11:52:46,568] multiqc                                            [DEBUG  ]  Moving data file from '/tmp/tmp_tfuxn47/multiqc_data' to 'report/fastp_multiqc_data'
+[2023-06-15 11:52:47,919] multiqc                                            [INFO   ]  MultiQC complete

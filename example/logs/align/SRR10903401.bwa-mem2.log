@@ -1,0 +1,118 @@
+Looking to launch executable "/home/victor/Project/mNGS/.snakemake/conda/787326cbe6cbe33cf4293eab1315435a_/bin/bwa-mem2.avx", simd = .avx
+Launching executable "/home/victor/Project/mNGS/.snakemake/conda/787326cbe6cbe33cf4293eab1315435a_/bin/bwa-mem2.avx"
+samblaster: Version 0.1.26
+samblaster: Inputting from stdin
+-----------------------------
+Executing in AVX mode!!
+-----------------------------
+* SA compression enabled with xfactor: 8
+* Ref file: /home/victor/DataHub/Homo_sapiens/Homo_sapiens_GRCh38_109_genome.fa
+* Entering FMI_search
+* Index file found. Loading index from /home/victor/DataHub/Homo_sapiens/Homo_sapiens_GRCh38_109_genome.fa.bwt.2bit.64
+* Reference seq len for bi-index = 6199501437
+10:48:15.293 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/home/victor/Project/mNGS/.snakemake/conda/787326cbe6cbe33cf4293eab1315435a_/share/picard-slim-3.0.0-0/picard.jar!/com/intel/gkl/native/libgkl_compression.so
+[Thu Jun 15 10:48:15 CST 2023] SortSam --INPUT /dev/stdin --OUTPUT /dev/stdout --SORT_ORDER coordinate --VERBOSITY INFO --QUIET false --VALIDATION_STRINGENCY STRICT --COMPRESSION_LEVEL 5 --MAX_RECORDS_IN_RAM 500000 --CREATE_INDEX false --CREATE_MD5_FILE false --help false --version false --showHidden false --USE_JDK_DEFLATER false --USE_JDK_INFLATER false
+[Thu Jun 15 10:48:15 CST 2023] Executing as victor@shpc-1385-instance-rVoBySAX on Linux 5.15.0-71-generic amd64; OpenJDK 64-Bit Server VM 20-internal-adhoc..src; Deflater: Intel; Inflater: Intel; Provider GCS is not available; Picard version: Version:3.0.0
+* sentinel-index: 2637166787
+* Count:
+0,	1
+1,	1819036420
+2,	3099750719
+3,	4380465018
+4,	6199501437
+
+* Reading other elements of the index from files /home/victor/DataHub/Homo_sapiens/Homo_sapiens_GRCh38_109_genome.fa
+* Index prefix: /home/victor/DataHub/Homo_sapiens/Homo_sapiens_GRCh38_109_genome.fa
+* Read 0 ALT contigs
+* Done reading Index!!
+* Reading reference genome..
+* Binary seq file = /home/victor/DataHub/Homo_sapiens/Homo_sapiens_GRCh38_109_genome.fa.0123
+* Reference genome size: 6199501436 bp
+* Done reading reference genome !!
+
+------------------------------------------
+1. Memory pre-allocation for Chaining: 2786.7754 MB
+2. Memory pre-allocation for BSW: 4792.3405 MB
+3. Memory pre-allocation for BWT: 1546.2835 MB
+------------------------------------------
+* Threads used (compute): 20
+* No. of pipeline threads: 2
+
+[0000] read_chunk: 200000000, work_chunk_size: 129597111, nseq: 937318
+	[0000][ M::kt_pipeline] read 937318 sequences (129597111 bp)...
+[0000] Calling mem_process_seqs.., task: 0
+[0000] 1. Calling kt_for - worker_bwt
+[0000] read_chunk: 200000000, work_chunk_size: 0, nseq: 0
+[0000] 2. Calling kt_for - worker_aln
+[0000] Inferring insert size distribution of PE reads from data, l_pac: 3099750718, n: 937318
+[0000][PE] # candidate unique pairs for (FF, FR, RF, RR): (1225, 59155, 286, 979)
+[0000][PE] analyzing insert size distribution for orientation FF...
+[0000][PE] (25, 50, 75) percentile: (112, 174, 666)
+[0000][PE] low and high boundaries for computing mean and std.dev: (1, 1774)
+[0000][PE] mean and std.dev: (319.40, 367.64)
+[0000][PE] low and high boundaries for proper pairs: (1, 2328)
+[0000][PE] analyzing insert size distribution for orientation FR...
+[0000][PE] (25, 50, 75) percentile: (88, 115, 133)
+[0000][PE] low and high boundaries for computing mean and std.dev: (1, 223)
+[0000][PE] mean and std.dev: (107.98, 28.40)
+[0000][PE] low and high boundaries for proper pairs: (1, 268)
+[0000][PE] analyzing insert size distribution for orientation RF...
+[0000][PE] (25, 50, 75) percentile: (354, 725, 1131)
+[0000][PE] low and high boundaries for computing mean and std.dev: (1, 2685)
+[0000][PE] mean and std.dev: (746.70, 497.52)
+[0000][PE] low and high boundaries for proper pairs: (1, 3462)
+[0000][PE] analyzing insert size distribution for orientation RR...
+[0000][PE] (25, 50, 75) percentile: (119, 203, 759)
+[0000][PE] low and high boundaries for computing mean and std.dev: (1, 2039)
+[0000][PE] mean and std.dev: (373.41, 415.03)
+[0000][PE] low and high boundaries for proper pairs: (1, 2679)
+[0000][PE] skip orientation FF
+[0000][PE] skip orientation RF
+[0000][PE] skip orientation RR
+[0000] 3. Calling kt_for - worker_sam
+	[0000][ M::mem_process_seqs] Processed 937318 reads in 362.874 CPU sec, 31.052 real sec
+samblaster: Loaded 194 header sequence entries.
+INFO	2023-06-15 10:49:19	SAMFileWriterFactory	Unknown file extension, assuming BAM format when writing file: file:///dev/stdout
+INFO	2023-06-15 10:49:20	SortSam	Seen many non-increasing record positions. Printing Read-names as well.
+[0000] read_chunk: 200000000, work_chunk_size: 0, nseq: 0
+[0000] Computation ends..
+No. of OMP threads: 20
+Processor is running @2400.097090 MHz
+Runtime profile:
+
+	Time taken for main_mem function: 76.25 sec
+
+	IO times (sec) :
+	Reading IO time (reads) avg: 3.85, (3.85, 3.85)
+	Writing IO time (SAM) avg: 1.06, (1.06, 1.06)
+	Reading IO time (Reference Genome) avg: 7.32, (7.32, 7.32)
+	Index read time avg: 29.61, (29.61, 29.61)
+
+	Overall time (sec) (Excluding Index reading time):
+	PROCESS() (Total compute time + (read + SAM) IO time) : 36.32
+	MEM_PROCESS_SEQ() (Total compute time (Kernel + SAM)), avg: 31.05, (31.05, 31.05)
+
+	 SAM Processing time (sec):
+	--WORKER_SAM avg: 5.13, (5.13, 5.13)
+
+	Kernels' compute time (sec):
+	Total kernel (smem+sal+bsw) time avg: 25.55, (25.55, 25.55)
+		SMEM compute avg: 15.82, (16.41, 15.42)
+		SAL compute avg: 3.39, (3.94, 3.01)
+				MEM_SA avg: 2.37, (2.69, 2.08)
+
+		BSW time, avg: 5.08, (5.14, 5.03)
+
+Important parameter settings: 
+	BATCH_SIZE: 512
+	MAX_SEQ_LEN_REF: 256
+	MAX_SEQ_LEN_QER: 128
+	MAX_SEQ_LEN8: 128
+	SEEDS_PER_READ: 500
+	SIMD_WIDTH8 X: 16
+	SIMD_WIDTH16 X: 8
+	AVG_SEEDS_PER_READ: 64
+samblaster: Removed      95655 of     468659 (20.410%) total read ids as duplicates.
+INFO	2023-06-15 10:49:32	SortSam	Finished reading inputs, merging and writing to output now.
+[Thu Jun 15 10:50:09 CST 2023] picard.sam.SortSam done. Elapsed time: 1.91 minutes.
+Runtime.totalMemory()=536870912
