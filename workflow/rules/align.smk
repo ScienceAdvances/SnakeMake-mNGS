@@ -1,18 +1,18 @@
 rule align:
     input:
-        reads=get_trimmed_fastq,
-        reference=genome_prefix+"genome.fa",
-        idx=multiext(genome_prefix+"genome.fa", ".0123", ".amb", ".bwt.2bit.64", ".ann",".pac"),
+        reads=get_clean_fastq,
+        reference=config['reference'],
+        idx=multiext(config['reference'], ".0123", ".amb", ".bwt.2bit.64", ".ann",".pac"),
     output:
-        temp("results/aligned/{s}{u}.aligned.cram") # Output can be .cram, .bam, or .sam
+        temp("{O}/Align/{S}{U}.Align.bam") # Output can be .cram, .bam, or .sam
     log:
-        "logs/align/{s}{u}.bwa-mem2.log"
+        "{O}/logs/Align/{S}{U}.bwa-mem2.log"
     params:
         bwa="bwa-mem2", # Can be 'bwa-mem, bwa-mem2 or bwa-meme.
         extra=get_read_group,
         sort="picard",
         sort_order="coordinate",
-        dedup=config['fastqs']['duplicates'], # Can be 'none' (default), 'mark' or 'remove'.
+        dedup=config['duplicates'], # Can be 'none' (default), 'mark' or 'remove'.
         dedup_extra=get_dedup_extra(),
         exceed_thread_limit=True,
         embed_ref=False,
@@ -22,34 +22,34 @@ rule align:
 
 rule MergeSamFiles:
     input:
-        sam=get_cram,
-        ref=genome_prefix+"genome.fa",
+        sam=get_bam,
+        ref=config['reference'],
     output:
-        sam="results/aligned/{s}.cram",
-        idx="results/aligned/{s}.cram.crai"
+        sam="{O}/Align/{S}.bam",
+        idx="{O}/Align/{S}.bam.bai"
     threads: 32
     params:
-        samtools_extra = "-c"
+        samtools_extra = "-b"
     log:
-        "logs/MergeSamFiles/{s}.log"
+        "{O}/logs/MergeSamFiles/{S}.log"
     conda: "../envs/MergeSamFiles.yaml"
     script:
         "../scripts/MergeSamFiles.py"
 
 rule RemoveHost:
     input:
-        sam="results/aligned/{s}.cram",
-        ref=genome_prefix+"genome.fa",
+        sam="{O}/Align/{S}.bam",
+        ref=config['reference'],
     output:
-        get_unaligned_fastq()
+        get_meta()
     threads: 32
     params:
         view_extra = "",
         sort_extra = "-n",
         fastq_extra = "",
-        paired=config["fastqs"]['pe']
+        is_single_end=SINGLE
     log:
-        "logs/RemoveHost/{s}.log"
+        "{O}/logs/RemoveHost/{S}.log"
     conda: "../envs/MergeSamFiles.yaml"
     script:
         "../scripts/RemoveHost.py"

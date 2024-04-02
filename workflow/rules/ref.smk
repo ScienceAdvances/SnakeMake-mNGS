@@ -1,8 +1,8 @@
 rule get_genome:
     output:
-        genome_prefix+"genome.fa"
+        genome_prefix+".fna"
     log:
-        "logs/ref/get_genome.log"
+        "{O}/logs/ref/get_genome.log"
     retries: 50
     params:
         species=config["genome"].get("species"),
@@ -13,24 +13,24 @@ rule get_genome:
     wrapper:
         config["warpper_mirror"]+"bio/reference/ensembl-sequence"
 
-rule genome_faidx:
+rule .fnaidx:
     input:
-        genome_prefix+"genome.fa"
+        genome_prefix+".fna"
     output:
-        genome_prefix+"genome.fa.fai"
+        genome_prefix+".fna.fai"
     cache: True
     log:
-        "logs/ref/genome_faidx.log"
+        "{O}/logs/ref/.fnaidx.log"
     wrapper:
         config["warpper_mirror"]+"bio/samtools/faidx"
 
 rule picard_create_dict:
     input:
-        genome_prefix+"genome.fa"
+        genome_prefix+".fna"
     output:
         genome_prefix+"genome.dict"
     log:
-        "logs/ref/picard_create_dict.log"
+        "{O}/logs/ref/picard_create_dict.log"
     resources:
         mem_mb=1024
     cache: True
@@ -39,10 +39,10 @@ rule picard_create_dict:
 
 rule bwa_mem2_index:
     input:
-        genome_prefix+"genome.fa"
+        genome_prefix+".fna"
     output:
         multiext(
-            genome_prefix+"genome.fa",
+            genome_prefix+".fna",
             ".0123",
             ".amb",
             ".ann",
@@ -50,7 +50,7 @@ rule bwa_mem2_index:
             ".pac",
         ),
     log:
-        "logs/ref/bwa_mem2_index.log"
+        "{O}/logs/ref/bwa_mem2_index.log"
     params:
         bwa="bwa-mem2"
     threads: 16

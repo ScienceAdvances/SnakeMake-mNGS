@@ -1,28 +1,28 @@
 rule spades:
     input:
-        get_unaligned_fastq()
+        get_meta()
     output:
-        "results/spades/{s}/contigs.fasta"
+        "{O}/Spades/{S}/contigs.fasta"
     threads: 32
     params:
         paired = config["fastqs"]['pe'],
         extra = "--meta"
     log:
-        "logs/spades/{s}.log"
+        "{O}/logs/spades/{S}.log"
     conda: "../envs/mNGS.yaml"
     script:
         "../scripts/spades.py"
 
 rule rgi:
     input:
-        "results/spades/{s}/contigs.fasta"
+        "{O}/Spades/{S}/contigs.fasta"
     output:
-        "results/rgi/{s}.txt"
+        "{O}/RGI/{S}.txt"
     threads: 32
     params:
         extra = "--clean",
     log:
-        "logs/rgi/{s}.log"
+        "{O}/logs/RGI/{S}.log"
     conda: "../envs/rgi.yaml"
     script:
         "../scripts/rgi.py"
@@ -30,14 +30,14 @@ rule rgi:
 rule VFDB:
     input:
         db = config["mNGS_idx"] + "/VFDB_setB_nt.fas.dmnd",
-        query = "results/spades/{s}/contigs.fasta"
+        query = "{O}/spades/{S}/contigs.fasta"
     output:
-        "results/VFDB/{s}.tsv"
+        "{O}/VFDB/{S}.tsv"
     threads: 32
     params:
         extra = "",
     log:
-        "logs/VFDB/{s}.log"
+        "{O}/logs/VFDB/{S}.log"
     conda: "../envs/VFDB.yaml"
     script:
         "../scripts/VFDB.py"

@@ -11,10 +11,10 @@ extra = snakemake.params.get("extra", "")
 log = snakemake.log_fmt_shell(stdout=True, stderr=True)
 
 fastq=snakemake.input.fastq
-if snakemake.params['paired']:
-    fastq = "-1 {} -2 {}".format(fastq[0],fastq[1])
+if snakemake.params["is_single_end"]:
+    fastq = "-1 {}".format(fastq[0])
 else:
-    fastq = "-U {}".format(fastq[0])
+    fastq = "-1 {} -2 {}".format(fastq[0],fastq[1])
 
 idx=snakemake.input.idx
 idx=idx[0].split(".")[-3]

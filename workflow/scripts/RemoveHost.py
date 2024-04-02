@@ -1,8 +1,8 @@
-"""Snakemake wrapper for picard MergeSamFiles."""
+"""Snakemake wrapper for samtools fastq."""
 
 __author__ = "Victor Wang"
 __copyright__ = "Copyright 2023, Victor Wang"
-__email__ = "victor@bioquest.cn"
+__email__ = "yehior@qq.com"
 __license__ = "Apache License 2.0"
 
 
@@ -17,10 +17,10 @@ log = snakemake.log_fmt_shell(stdout=True, stderr=True)
 
 fastq=snakemake.output
 
-if snakemake.params['paired']:
-    fastq = "-1 {} -2 {}".format(fastq[0],fastq[1])
-else:
+if snakemake.params["is_single_end"]:
     fastq = "-1 {}".format(fastq[0])
+else:
+    fastq = "-1 {} -2 {}".format(fastq[0],fastq[1])
 
 threads="--threads {snakemake.threads}"
 shell(

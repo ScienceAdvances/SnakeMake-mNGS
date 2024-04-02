@@ -5,7 +5,6 @@ __copyright__ = "Copyright 2023, Victor Wang"
 __email__ = "victor@bioquest.cn"
 __license__ = "Apache License 2.0"
 
-
 import tempfile
 from snakemake.shell import shell
 
@@ -13,10 +12,10 @@ extra = snakemake.params.get("extra", "")
 
 log = snakemake.log_fmt_shell(stdout=True, stderr=True)
 
-if snakemake.params['paired']:
-    is_paired="--paired"
-else:
+if snakemake.params["is_single_end"]:
     is_paired=""
+else:
+    is_paired="--paired"
 
 unclassified_out = snakemake.output.get("unclassified_seq", "")
 if unclassified_out:

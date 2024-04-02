@@ -4,17 +4,17 @@ include: "rules/common.smk"
 
 rule all:
     input:
-        "report/fastp_multiqc.html",
-        "report/align_multiqc.html",
-        expand("report/centrifuge/{s}.kreport.tsv",s=samples.Sample),
-        expand("report/bracken/{s}.bracken.tsv",s=samples.Sample),
-        expand("report/Krona/{s}.html",s=samples.Sample),
-        expand("results/VFDB/{s}.tsv",s=samples.Sample),
-        expand("results/rgi/{s}.txt",s=samples.Sample),
+        f"{OUTDIR}/Report/fastp_multiqc.html",
+        f"{OUTDIR}Report/Align_multiqc.html",
+        expand("{o}/Report/Centrifuge/{s}.kreport.tsv",s=SAMPLE),
+        expand("{o}/Report/Bracken/{s}.bracken.tsv",s=SAMPLE),
+        expand("{o}/Report/Krona/{s}.html",s=SAMPLE),
+        expand("VFDB/{s}.tsv",s=SAMPLE),
+        expand("{o}/RGI/{s}.txt",s=SAMPLE),
 
 ##### Modules #####
 include: "rules/trim.smk"
-include: "rules/ref.smk"
+# include: "rules/ref.smk"
 include: "rules/align.smk"
 include: "rules/classify.smk"
 include: "rules/qc.smk"

@@ -1,37 +1,50 @@
+rule fastp:
+    input:
+        sample=get_fastq
+    output:
+        trimmed=temp("{O}/Clean/{S}{U}.fastq.gz") if SINGLE else [temp("{O}/Clean/{S}{U}_1.fastq.gz"), temp("trimmed/{S}{U}_2.fastq.gz")],
+        html="{O}/Report/fastp/{S}{U}.fastp.html",
+        json="{O}/Report/fastp/{S}{U}.fastp.json",
+    log:
+        "{O}/logs/fastp/{S}{U}.log"
+    threads: 32
+    wrapper:
+        config["warpper_mirror"]+"bio/fastp"
+
 rule fastp_multiqc:
     input:
-        expand("report/{s}{u}.fastp.json", s=samples.Sample,u=samples.Unit)
+        expand("{O}/Report/{S}{U}.fastp.json", s=samples.Sample,u=samples.Unit)
     output:
         report(
-            "report/fastp_multiqc.html",
-            caption="../report/multiqc.rst",
+            "{O}/Report/fastp_multiqc.html",
+            caption="../Report/multiqc.rst",
             category="Quality control"
         ),
     log:
-        "logs/qc/fastp_multiqc.log"
+        "{O}/logs/qc/fastp_multiqc.log"
     wrapper:
         config["warpper_mirror"]+"bio/multiqc"
 
 rule samtools_stats:
     input:
-        "results/aligned/{s}.cram",
+        "{O}/Align/{S}.bam",
     output:
-        temp("results/aligned/{s}.txt")
+        temp("{O}/Align/{S}.txt")
     log:
-        "logs/qc/{s}.samtools_stats.log"
+        "{O}/logs/qc/{S}.samtools_stats.log"
     wrapper:
         config["warpper_mirror"]+"bio/samtools/stats"
 
 rule align_multiqc:
     input:
-        expand(["results/aligned/{s}.txt"],s=samples.Sample),
+        expand(["{O}/Align/{S}.txt"],s=samples.Sample),
     output:
-        report(
-            "report/align_multiqc.html",
-            caption="../report/multiqc.rst",
+        Report(
+            "{O}/Report/align_multiqc.html",
+            caption="../Report/multiqc.rst",
             category="Quality control",
         ),
     log:
-        "logs/qc/align_multiqc.log",
+        "{O}/logs/qc/align_multiqc.log",
     wrapper:
         config["warpper_mirror"]+"bio/multiqc"

@@ -1,17 +1,11 @@
 samples: config/samples.tsv
+outdir: /mnt/hgfs/VMshared/victor
+warpper_mirror: https://jihulab.com/NshimaBio/sws/-/raw/v3.3.6/ 
 
-warpper_mirror: https://jihulab.com/BioQuest/snakemake-wrappers/raw/v1.32.0/
+mNGS_idx: /mnt/hgfs/VMshared/victor
+reference: /mnt/hgfs/VMshared/victor/maf/maf.fna
 
-fastqs:
-    dir: raw # raw fastq files directory
-    pe: true # pair end
-    duplicates: remove # Can be 'mark' or 'remove'.
-    platform: ILLUMINA
-
-genome:
-    dir: /home/victor/DataHub
-    species: homo_sapiens
-    release: "109"
-    build: GRCh38
-
-mNGS_idx: /home/victor/DataHub/mNGS
+fastqs: /mnt/hgfs/VMshared/victor/fastq
+platform: ILLUMINA
+is_single_end: false
+duplicates: remove
